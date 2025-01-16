@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "companies#index"
+  get "companies/search", to: "companies#search"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :admin do
+    resources :companies, only: [:index] do
+      collection do
+        post :import
+      end
+    end
+  end
+
+  # Mount Action Cable for WebSocket connections
+  mount ActionCable.server => '/cable'
 end
