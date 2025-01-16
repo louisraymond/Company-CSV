@@ -1,0 +1,16 @@
+<turbo-stream target="results" action="replace">
+  <template>
+    <% if @companies.present? %>
+      <h2>Search Results</h2>
+      <ul class="list-group mb-4">
+        <% @companies.each do |company| %>
+          <li class="list-group-item">
+            <strong><%= company.name %></strong> — <%= company.city %> (<%= company.registry_number %>)
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No matches found.</p>
+    <% end %>
+  </template>
+</turbo-stream>

@@ -1,0 +1,12 @@
+
+<% if companies.any? %>
+  <ul class="list-group">
+    <% companies.each do |company| %>
+      <li class="list-group-item">
+        <strong><%= company.name %></strong> - <%= company.city %> (<%= company.registry_number %>)
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No matches found.</p>
+<% end %>
