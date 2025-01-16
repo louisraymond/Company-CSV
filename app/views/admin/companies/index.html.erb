@@ -1,0 +1,15 @@
+<h1>Admin: Import Companies CSV</h1>
+
+<%= form_with url: import_admin_companies_path, method: :post, local: true, multipart: true do %>
+  <div class="mb-3">
+    <%= file_field_tag :file, accept: ".csv", class: "form-control" %>
+  </div>
+  <%= submit_tag "Upload CSV", class: "btn btn-primary" %>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success mt-3"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger mt-3"><%= flash[:alert] %></div>
+<% end %>
